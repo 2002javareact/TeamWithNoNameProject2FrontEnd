@@ -1,0 +1,15 @@
+form{
+  box-shadow: 10px 5px 5px;
+  box-sizing: content-box;  
+  width: 25%;
+  height: 10%;
+  padding: 2%;  
+  border: 10px solid black;
+  margin: 2%;
+}
+
+p{
+
+  margin-left:5%;
+}
+
