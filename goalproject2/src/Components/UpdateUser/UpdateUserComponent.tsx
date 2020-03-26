@@ -5,7 +5,8 @@ import { Redirect } from "react-router"
 
 interface IUpdateUserProps{
     updatedUser:Users
-    currentUser:Users
+    loggedUser:Users
+    errorMessage:string
     UpdateUserActionMapper:(userId:number,username:string,password:string,firstName:string,lastName:string,email:string)=>void
 }
 
@@ -76,7 +77,7 @@ export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdat
 
     render(){
         return(
-            this.props.currentUser.username === '' || this.props.currentUser.role.roleId !== 1 ?
+            this.props.loggedUser.username === '' || this.props.loggedUser.role.roleId !== 1 ?
             <Redirect to = '/'/>
             :
             this.props.updatedUser.username === ''?

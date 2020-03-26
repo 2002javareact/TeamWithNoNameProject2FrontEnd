@@ -1,6 +1,6 @@
-import { Users } from "../Compoinents/Models/Users"
+import { Users } from "../Components/Models/Users"
 import { IFindByUserIdState } from "."
-import { Role } from "../Compoinents/Models/Role"
+import { Role } from "../Components/Models/Role"
 import { AnyAction } from "redux"
 import { FindByUserIdTypes } from "../ActionMapper/UserByIdAM"
 
@@ -10,7 +10,7 @@ import { FindByUserIdTypes } from "../ActionMapper/UserByIdAM"
 
 
 export const initialState:IFindByUserIdState = {
-    userById: new Users(0,'','','','','',new Role(0,'')),
+    userById: new Users(0,'','','','','',new Role(1,'')),
     errorMessage:''
 }
 

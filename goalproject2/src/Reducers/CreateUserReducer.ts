@@ -1,11 +1,11 @@
-import { Users } from "../Compoinents/Models/Users"
+import { Users } from "../Components/Models/Users"
 import { ICreateUserState} from "."
-import { Role } from "../Compoinents/Models/Role"
+import { Role } from "../Components/Models/Role"
 import { AnyAction } from "redux"
 import { CreateUserTypes } from "../ActionMapper/CreateUserActionMapper"
 
 export const initialState:ICreateUserState = {
-    createdUser: new Users(0,'','','','','',new Role(3,'')),
+    createdUser: new Users(0,'','','','','',new Role(1,'')),
     errorMessage:''
 }
 

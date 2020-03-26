@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { UserInfoRequest } from '../Remote/UserInfoRequest'
+import { FetchUserById } from "../Remote/FetchUserById";
 
 export const FindByUserIdTypes = {
     SUCCESSFUL : 'PROJECT-2_FOUND_USER',
@@ -9,7 +9,7 @@ export const FindByUserIdTypes = {
 
 export const UserByIdActionMapper = (userId:number) => async  (dispatch:Dispatch) => {
     try{
-        let user = await UserInfoRequest(userId)
+        let user = await FetchUserById(userId)
         dispatch({
             type:  FindByUserIdTypes.SUCCESSFUL,
             payload:{

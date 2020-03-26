@@ -1,11 +1,11 @@
-import { Users } from "../Compoinents/Models/Users"
-import { Role } from "../Compoinents/Models/Role"
+import { Users } from "../Components/Models/Users"
+import { Role } from "../Components/Models/Role"
 import { AnyAction } from "redux"
 import { loginTypes } from "../ActionMapper/LoginActionMapper"
 import { ILoginState } from "."
 
 export const initialState:ILoginState = {
-    loggedUser: new Users(0,'','','','','',new Role(3,'')),
+    loggedUser: new Users(0,'','','','','',new Role(1,'')),
     errorMessage:''
 }
 
@@ -20,7 +20,7 @@ export const LoginReducer = (state = initialState, action:AnyAction) => {
          
             return {
                 ...state,
-                user: action.payload.loggedUser,
+                loggedUser: action.payload.loggedUser,
                 errorMessage:'Login Successful' 
              }
        }

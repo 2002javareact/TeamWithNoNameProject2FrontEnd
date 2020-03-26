@@ -1,11 +1,11 @@
 import { IUpdateUserState } from "."
-import { Role } from "../Compoinents/Models/Role"
-import { Users } from "../Compoinents/Models/Users"
+import { Role } from "../Components/Models/Role"
+import { Users } from "../Components/Models/Users"
 import { AnyAction } from "redux"
 import { UpdateUserTypes } from "../ActionMapper/UpdateUserActionMapper"
 
 export const initialState:IUpdateUserState = {
-    updatedUser: new Users(0,'','','','','',new Role(0,'')),
+    updatedUser: new Users(0,'','','','','',new Role(1,'')),
     errorMessage:''
 }
 

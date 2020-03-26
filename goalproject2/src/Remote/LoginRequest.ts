@@ -1,6 +1,6 @@
-import { Users } from "../Compoinents/Models/Users"
-import { BadCredentialsError } from "../Compoinents/Errors/BadCredentialsError"
-import { InternalServiceError } from "../Compoinents/Errors/InternalServiceError"
+import { Users } from "../Components/Models/Users"
+import { BadCredentialsError } from "../Components/Errors/BadCredentialsError"
+import { InternalServiceError } from "../Components/Errors/InternalServiceError"
 import { Project2Client } from "./Project2Client"
 
 export async function LoginRequest(username: string, password: string):Promise<Users> {
@@ -11,7 +11,7 @@ export async function LoginRequest(username: string, password: string):Promise<U
 
     try {
         let res = await Project2Client.post("/users/login",credentials)
-        if(res.status === 401){
+        if(res.data === ""){
             throw new BadCredentialsError()
         }        
             return res.data        

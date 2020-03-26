@@ -1,6 +1,7 @@
 import { Users } from "../Models/Users"
 import React, { SyntheticEvent } from "react"
 import { Button, FormGroup, Form, Input } from "reactstrap"
+import { Role } from "../Models/Role"
 
 export interface ILoginProps{
     loggedUser:Users
@@ -8,7 +9,7 @@ export interface ILoginProps{
     errorMessage1:string
     errorMessage2:string
     LoginActionMapper:(u:string,p:string)=>void
-    CreateUserActionMapper:(u:string,p:string,fN:string,ln:string,e:string)=>void
+    CreateUserActionMapper:(u:string,p:string,fN:string,ln:string,e:string,r:Role)=>void
 }
 
 export interface ILoginState {
@@ -47,7 +48,7 @@ export class HomepageComponent extends React.Component<ILoginProps, ILoginState>
         
     create = async (e: SyntheticEvent) => {
         e.preventDefault()
-        this.props.CreateUserActionMapper(this.state.username, this.state.password, this.state.firstName,this.state.lastName,this.state.email)
+        this.props.CreateUserActionMapper(this.state.username, this.state.password, this.state.firstName,this.state.lastName,this.state.email,new Role(1,""))
         this.setState({
             username:'',
             password:'',

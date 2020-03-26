@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { Users } from "../Compoinents/Models/Users";
+import { Users } from "../Components/Models/Users";
 import { LoginReducer } from "./LoginReducer";
 import { CreateUserReducer } from "./CreateUserReducer";
 import { UpdateUserReducer } from "./UpdateUserReducer";
