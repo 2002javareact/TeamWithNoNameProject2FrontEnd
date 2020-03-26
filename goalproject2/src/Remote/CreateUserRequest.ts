@@ -3,8 +3,9 @@ import { Project2Client } from "./Project2Client"
 import { InternalServiceError } from "../Components/Errors/InternalServiceError"
 import { Role } from "../Components/Models/Role"
 
-export async function CreateUserRequest(username: string, password: string, firstName:string, lastName:string,email:string,role:Role):Promise<Users> {
+export async function CreateUserRequest(userId:number,username: string, password: string, firstName:string, lastName:string,email:string,role:Role):Promise<Users> {
     let createdUser = {
+        userId:0,
         username,
         password,
         firstName,
