@@ -2,10 +2,10 @@
 
 export class Role{
     roleId: number // primary key
-    role: string // not null, unique
-    constructor(roleId:number,role:string)
+    roleName: string // not null, unique
+    constructor(roleId:number,roleName:string)
     {
         this.roleId = roleId
-        this.role = role
+        this.roleName = roleName
     }
 }

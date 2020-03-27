@@ -126,7 +126,7 @@ export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdat
                 <h3>Updated User</h3>
                 <CardTitle>{this.props.updatedUser.firstName} {this.props.updatedUser.lastName}</CardTitle>
                 <CardText>{`Username: ${this.props.updatedUser.username}`}</CardText>
-                <CardText>{`Role: ${this.props.updatedUser.role.role}`}</CardText>
+                <CardText>{`Role: ${this.props.updatedUser.role.roleName}`}</CardText>
                 <CardText>{`Email: ${this.props.updatedUser.email}`}</CardText>
              </Card>
         )

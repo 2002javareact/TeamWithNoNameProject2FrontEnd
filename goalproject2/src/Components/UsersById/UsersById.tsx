@@ -52,7 +52,7 @@ render(){
          <Card>
                 <CardTitle>{this.props.userById.firstName} {this.props.userById.lastName}</CardTitle>
                 <CardText>{`Username: ${this.props.userById.username}`}</CardText>
-                <CardText>{`Role: ${this.props.userById.role.role}`}</CardText>
+                <CardText>{`Role: ${this.props.userById.role.roleName}`}</CardText>
                 <CardText>{`Email: ${this.props.userById.email}`}</CardText>
         </Card>
         <p>{this.props.errorMessage}</p>

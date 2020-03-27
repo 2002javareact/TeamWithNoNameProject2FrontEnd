@@ -1,12 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { store } from './Store';
 import { Provider } from 'react-redux';
 import  HomepageComponent  from './Components/Homepage/HomepageContainer';
 import  UpdateUserComponent  from './Components/UpdateUser/UpdateUserContainer';
 import  UsersByIdComponent  from './Components/UsersById/FindUserByIdContainer';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import  ViewAllUsersComponent  from './Components/ViewAllUsers/ViewAllUsersContainer';
+import  LoggedInPageComponent  from './Components/LoggedInPage/LoggedInPageComponent';
+import  UserInfoComponent  from './Components/UserInfo/UserInfoContainer';
 
 export class App extends React.Component<any,any> {
  
@@ -15,10 +18,13 @@ export class App extends React.Component<any,any> {
       <Provider store = {store}>    
         <div className="App">
           <Router> 
-            <Switch>    
-              <Route path = '/' component ={HomepageComponent}/>
-              <Route path = '/update/user' component = {UpdateUserComponent}/> 
-              <Route path = '/users/id' component ={UsersByIdComponent}/> 
+            <Switch>   
+            <Route path = '/homepage' component ={HomepageComponent}/> 
+            <Route path = '/users/info' component={UserInfoComponent}/>
+            <Route path = '/update/user' component = {UpdateUserComponent}/> 
+            <Route path = '/users/id' component ={UsersByIdComponent}/> 
+            <Route path = '/users' component = {ViewAllUsersComponent}/> 
+            <Route path = '/loggedIn' component = {LoggedInPageComponent}/>
             </Switch>
           </Router>          
         </div>

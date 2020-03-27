@@ -1,15 +1,29 @@
-form{
-  box-shadow: 10px 5px 5px;
-  box-sizing: content-box;  
-  width: 25%;
-  height: 10%;
-  padding: 2%;  
+
+.create{
+  background-color: aqua;
   border: 10px solid black;
-  margin: 2%;
+  box-shadow: 10px 5px 5px;
+  padding:4%;
+}
+.login{
+  background-color: aqua;
+  border: 10px solid black;
+  box-shadow: 10px 5px 5px;
+  padding:4%;
+  margin-left:4%;
+}
+card
+
+Container{
+  margin-top: 5%;
 }
 
-p{
-
-  margin-left:5%;
+.viewUsersButton{
+  margin-top:5%;
+  float:left;
+  margin-left: 5%;
 }
 
+CardTitle,CardText{
+  margin-left: 10%;
+}
