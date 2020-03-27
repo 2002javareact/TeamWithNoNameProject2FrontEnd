@@ -2,14 +2,24 @@ import { Users } from "../Components/Models/Users"
 import { Project2Client } from "./Project2Client"
 import { InternalServiceError } from "../Components/Errors/InternalServiceError"
 import { UserNotFoundError } from "../Components/Errors/UserNotFoundError"
+import { TokenExpiredError } from "../Components/Errors/TokenExpiredError";
 
 
 export const FetchAllUsers = async ()=>{
+
+    try{
     let allUsers = await Project2Client.get('/users')
-    if(allUsers.status === 200){
-        return allUsers.data
+
+    if(allUsers.status === 400){
+        throw new TokenExpiredError()
     }
-    else if(allUsers.status === 404){
+
+    return allUsers.data
+
+} catch (e) {
+    if(e.status === 400){
+        throw e
+    } else if(e.status === 404){
         throw new UserNotFoundError()
     }
     else{
@@ -17,18 +27,4 @@ export const FetchAllUsers = async ()=>{
     }
 }
 
-
-/*
-export async function UserGetAllRequest():Promise<Users>
- {
-    
-    try {
-        let res = await Project2Client.get("/users/")
-        
-            return res.data        
-    } 
-    catch (e) {
-            throw new InternalServiceError()
-        }
- }
- */
+}
