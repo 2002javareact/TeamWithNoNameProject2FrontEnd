@@ -4,6 +4,7 @@ import { LoginReducer } from "./LoginReducer";
 import { CreateUserReducer } from "./CreateUserReducer";
 import { UpdateUserReducer } from "./UpdateUserReducer";
 import { findByUserIdReducer } from "./FindByUserIdReducer";
+import { usersReducer}  from "./GetAllUsersReducer"
 //make interfaces for each "piece" of state
 export interface ILoginState{
     loggedUser:Users
@@ -23,17 +24,24 @@ export interface IFindByUserIdState{
     errorMessage:string
 }
 
+export interface IUsersState{
+    allUsers:Users[]
+    errorMessage:string
+}
+
 //define all of the pieces of state
 export interface IState{
     loggedUser:ILoginState
     createdUser:ICreateUserState
     updateUser: IUpdateUserState
     userId:IFindByUserIdState
+    users: IUsersState
 }
 //turn all individual pieces of state into a single state
 export const state = combineReducers<IState>({
     loggedUser:LoginReducer,
     createdUser:CreateUserReducer,
     updateUser: UpdateUserReducer,
-    userId: findByUserIdReducer
+    userId: findByUserIdReducer,
+    users: usersReducer
 })
