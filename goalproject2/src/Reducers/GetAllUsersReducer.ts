@@ -1,4 +1,4 @@
-import { Users } from "../Compoinents/Models/Users"
+import { Users } from "../Components/Models/Users"
 import { IFindByUserIdState } from "."
 import { Role } from "../Compoinents/Models/Role"
 import { AnyAction } from "redux"
