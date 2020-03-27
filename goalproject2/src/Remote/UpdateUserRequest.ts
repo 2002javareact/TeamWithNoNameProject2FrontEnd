@@ -1,6 +1,6 @@
-import { Project2Client } from "../../Remote/Project2Client"
-import { TokenExpiredError } from "../Errors/TokenExpiredError"
-import { InternalServiceError } from "../Errors/InternalServiceError"
+import { Project2Client } from "./Project2Client"
+import { TokenExpiredError } from "../Components/Errors/TokenExpiredError"
+import { InternalServiceError } from "../Components/Errors/InternalServiceError"
 
 
 

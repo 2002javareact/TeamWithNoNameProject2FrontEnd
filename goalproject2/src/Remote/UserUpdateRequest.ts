@@ -1,6 +1,6 @@
-import { Users } from "../Compoinents/Models/Users"
+import { Users } from "../Components/Models/Users"
 import { Project2Client } from "./Project2Client"
-import { InternalServiceError } from "../Compoinents/Errors/InternalServiceError"
+import { InternalServiceError } from "../Components/Errors/InternalServiceError"
 
 export async function UserUpdateRequest(user_id:number, username: string, password: string, firstName:string, lastName:string,email:string):Promise<Users> {
     let updatedUser = {

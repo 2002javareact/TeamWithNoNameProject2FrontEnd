@@ -29,36 +29,3 @@ export const getAllUsersActionMapper = () => async (dispatch:Dispatch) => {
     }
     //function completes
 }
-
-
-/*
-export const FindAllUserTypes = {
-    SUCCESSFUL : 'PROJECT-2_FOUND_AllUSERS',
-    USERS_NOT_FOUND: 'PROJECT-2_AllUSERS_NOT_FOUND',
-    INTERNAL_SERVER: 'PROJECT-2_INTERNAL_SERVER_ERROR'
-}
-
-export const GetAllUsersActionMapper = () => async  (dispatch:Dispatch) => {
-    try{
-        let user = await UserGetAllRequest()
-        dispatch({
-            type:  FindAllUserTypes.SUCCESSFUL,
-            payload:{
-                user
-            }
-        })
-    }catch(e){
-        if(e.status === 404){
-            dispatch({
-                type:FindAllUserTypes.USERS_NOT_FOUND
-            })
-        }else {
-            dispatch({
-                type:FindAllUserTypes.INTERNAL_SERVER
-            })
-        }
-    }
-
-}
-
-*/

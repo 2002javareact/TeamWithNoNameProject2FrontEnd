@@ -1,7 +1,7 @@
-import { Users } from "../Compoinents/Models/Users"
+import { Users } from "../Components/Models/Users"
 import { Project2Client } from "./Project2Client"
-import { InternalServiceError } from "../Compoinents/Errors/InternalServiceError"
-import { UserNotFoundError } from "../Compoinents/Errors/UserNotFoundError"
+import { InternalServiceError } from "../Components/Errors/InternalServiceError"
+import { UserNotFoundError } from "../Components/Errors/UserNotFoundError"
 
 
 export const FetchAllUsers = async ()=>{

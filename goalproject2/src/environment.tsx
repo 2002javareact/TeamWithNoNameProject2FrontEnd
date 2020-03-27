@@ -1,5 +1,5 @@
 const devEnvironment = {
-    project2BaseUrl:'http://localhost:2020'
+    project2BaseUrl:'http://localhost:2002'
 }
 
 const prodEnvironment = {
