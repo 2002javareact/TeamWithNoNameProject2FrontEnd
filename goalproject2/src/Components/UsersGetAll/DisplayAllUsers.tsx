@@ -67,7 +67,7 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
 
 
   {
-this.state.users.map(  (person:Users) => 
+  this.props.allUsers.map(  (person) => 
    (
      
       
