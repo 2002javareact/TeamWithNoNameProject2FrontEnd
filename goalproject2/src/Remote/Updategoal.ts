@@ -1,11 +1,9 @@
-import { Users } from "../Components/Models/Users";
 import { Goal } from "../Components/Models/Goals";
 import { Project2Client } from "./Project2Client";
 import { InternalServiceError } from "../Components/Errors/InternalServiceError";
 
-export async function CreateGoalRequest(
+export async function UpdateGoalRequest(
 	goalId: number,
-	user: Users,
 	name: string,
 	description: string,
 	goalLength: number,
@@ -13,9 +11,8 @@ export async function CreateGoalRequest(
 	completeDate: number,
 	successful: boolean
 ): Promise<Goal> {
-	let createdGoal = {
+	let updatedGoal = {
 		goalId,
-		user,
 		name,
 		description,
 		goalLength,
@@ -25,7 +22,7 @@ export async function CreateGoalRequest(
 	};
 
 	try {
-		let res = await Project2Client.post("/goals", createdGoal);
+		let res = await Project2Client.patch("/goals", updatedGoal);
 
 		return res.data;
 	} catch (e) {
