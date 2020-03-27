@@ -35,8 +35,13 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
             return <UserInfoComponent currentUser={ele} key={ele.userId}/>
         })
         return(
-            this.props.currentUser.role.roleId <= 2?
+
+
+            this.props.loggedUser.username === '' || this.props.loggedUser.role.roleId !== 1 ?
+            <Redirect to = '/'/>
+            :
             <>
+
             <Container>
                 <CardDeck elementsPerRow={4}>
                     {userDisplay}
@@ -44,8 +49,8 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
             </Container>
             <p>{this.props.errorMessage}</p>
             </>
-            :
-            <Redirect to='/'/>
-        )
+
+
+        ) //render
     }
 }
