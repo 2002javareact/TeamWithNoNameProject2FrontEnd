@@ -51,7 +51,7 @@ export interface IState {
 	userId: IFindByUserIdState;
 	createdGoal: ICreateGoalState;
 	updatedGoal: IUpdateGoalState;
-	users: IUsersState;
+	users: IUsersState
 }
 //turn all individual pieces of state into a single state
 export const state = combineReducers<IState>({
