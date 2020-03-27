@@ -1,17 +1,21 @@
-import React from "react"
+import React, { SyntheticEvent } from "react"
 import { Users } from "../Models/Users"
 import { IState } from "../../Reducers"
 import { connect } from "react-redux"
-import { Card, CardTitle, CardText, Button, Container } from "reactstrap"
+import { Button, Container, Form } from "reactstrap"
 import { Redirect } from "react-router"
 import  UserInfoComponent  from "../UserInfo/UserInfoContainer"
-import ViewAllUsersComponent  from "../ViewAllUsers/ViewAllUsersContainer"
 
 interface ILoggedInProps{
     loggedUser:Users
 }
 export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
    
+    buttonClick = (e: SyntheticEvent)=>{
+        e.preventDefault()
+        return (<Redirect to = '/users'/>)
+    }
+
     render(){
         if(this.props.loggedUser.username === ""){
             return(
@@ -20,8 +24,10 @@ export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
         }
         else{
         return(
-            <>  
-                    <Button className = "viewUsersButton">View All Users</Button>
+            <>      
+                    <Form onSubmit = {this.buttonClick} className="viewAllUsersButton">
+                    <Button  >View All Users</Button>
+                    </Form>
                     <Container>
                     <UserInfoComponent/>
                     </Container>
@@ -39,6 +45,4 @@ const mapStateToProps = (state:IState) =>{
   }  
   export default connect(mapStateToProps)(LoggedInPageComponent)
 
-  export function buttonClick (){
-      return <Redirect to = '/users'/>
-  }
+ 

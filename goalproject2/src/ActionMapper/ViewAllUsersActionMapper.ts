@@ -1,9 +1,9 @@
 import { Dispatch } from "redux"
-import { UserGetAllRequest } from "../Remote/UserGetAllRequest"
+import { FetchAllUsers } from "../Remote/UserGetAllRequest"
 
 export const usersTypes = {
-    GET_ALL_USERS: 'PROJECT-1_GET_ALL_USERS',
-    FAILED_TO_RETRIEVE_USERS:'PROJECT-1_FAILED_TO_RETRIEVE_USERS'
+    GET_ALL_USERS: 'PROJECT-2_GET_ALL_USERS',
+    FAILED_TO_RETRIEVE_USERS:'PROJECT-2_FAILED_TO_RETRIEVE_USERS'
 }
 
 
@@ -11,7 +11,7 @@ export const usersTypes = {
 export const getAllUsersActionMapper = () => async (dispatch:Dispatch) => {
     // try to get all users from a remote function
     try{
-        let usersArray = await UserGetAllRequest()
+        let usersArray = await FetchAllUsers()
         //if we do call dispatch with those users
         dispatch({
             type: usersTypes.GET_ALL_USERS,
