@@ -1,6 +1,6 @@
 import { Users } from "../Components/Models/Users"
 import { IFindByUserIdState } from "."
-import { Role } from "../Compoinents/Models/Role"
+import { Role } from "../Components/Models/Role"
 import { AnyAction } from "redux"
 import { getAllUsersActionMapper } from "../ActionMapper/GetAllUsers"
 import { usersTypes} from "../ActionMapper/GetAllUsers"
