@@ -18,8 +18,8 @@ import { Redirect } from "react-router";
 import { Role } from "../Models/Role";
 
 interface ICreateGoalProps {
-	newGoal: Goal;
-	currentUser: Users;
+	createdGoal: Goal;
+	loggedUser: Users;
 	CreateGoalActionMapper: (
 		user: Users,
 		name: string,
@@ -61,7 +61,7 @@ export class CreateGoalComponent extends React.Component<
 	updateUser = (e: any) => {
 		this.setState({
 			// user: e.currentTarget.value
-			user: this.props.currentUser
+			user: this.props.loggedUser
 		});
 	};
 
@@ -111,7 +111,7 @@ export class CreateGoalComponent extends React.Component<
 	};
 
 	render() {
-		return this.props.currentUser.username === "" ? (
+		return this.props.loggedUser.username === "" ? (
 			<Redirect to="/" />
 		) : this.state.description === "" ? (
 			<Container>
@@ -188,11 +188,11 @@ export class CreateGoalComponent extends React.Component<
 		) : (
 			<Container>
 				<Card>
-					<CardTitle>{`Name: ${this.props.newGoal.name}`}</CardTitle>
-					<CardText>{`Description: ${this.props.newGoal.description}`}</CardText>
-					<CardText>{`Goal Length: ${this.props.newGoal.goalLength}`}</CardText>
-					<CardText>{`Start Date ${this.props.newGoal.startDate}`}</CardText>
-					<CardText>{`Complete Date: ${this.props.newGoal.completeDate}`}</CardText>
+					<CardTitle>{`Name: ${this.props.createdGoal.name}`}</CardTitle>
+					<CardText>{`Description: ${this.props.createdGoal.description}`}</CardText>
+					<CardText>{`Goal Length: ${this.props.createdGoal.goalLength}`}</CardText>
+					<CardText>{`Start Date ${this.props.createdGoal.startDate}`}</CardText>
+					<CardText>{`Complete Date: ${this.props.createdGoal.completeDate}`}</CardText>
 				</Card>
 				<p>{this.props.errorMessage}</p>
 			</Container>

@@ -8,7 +8,6 @@ export const CreateGoalTypes = {
 };
 
 export const CreateGoalActionMapper = (
-	goalId: number,
 	user: Users,
 	name: string,
 	description: string,

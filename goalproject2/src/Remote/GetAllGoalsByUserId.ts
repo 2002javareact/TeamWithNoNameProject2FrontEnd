@@ -6,7 +6,7 @@ import { UserNotFoundError } from "../Components/Errors/UserNotFoundError"
 export const getAllGoalsByUserId = async (id:number)=> {
 
     try {
-        let allGoals = await Project2Client.get(`/goals/${id}`)
+        let allGoals = await Project2Client.get(`/goals/user/${id}`)
 
         if(allGoals.status === 404){
             throw new UserNotFoundError()

@@ -1,12 +1,13 @@
 import { IState } from "../../Reducers";
 import { CreateGoalActionMapper } from "../../ActionMapper/CreateGoalActionMapper";
-import { connect } from "react-redux";
 import { CreateGoalComponent } from "./CreateGoalComponent";
+import { connect } from "react-redux";
 
 const mapStateToProps = (state: IState) => {
 	return {
 		createdGoal: state.createdGoal.createdGoal,
-		currentUser: state.loggedUser.loggedUser
+		loggedUser: state.loggedUser.loggedUser,
+		errorMessage: state.createdGoal.errorMessage
 	};
 };
 
