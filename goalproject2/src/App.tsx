@@ -20,10 +20,10 @@ export class App extends React.Component<any,any> {
           <Router> 
             <Switch>   
             <Route path = '/homepage' component ={HomepageComponent}/> 
-            <Route path = '/users/info' component={UserInfoComponent}/>
-            <Route path = '/update/user' component = {UpdateUserComponent}/> 
-            <Route path = '/users/id' component ={UsersByIdComponent}/> 
-            <Route path = '/users' component = {ViewAllUsersComponent}/> 
+            <Route path = '/info' component={UserInfoComponent}/>
+            <Route path = '/user' component = {UpdateUserComponent}/> 
+            <Route path = '/id' component ={UsersByIdComponent}/> 
+            <Route path = '/all' component = {ViewAllUsersComponent}/> 
             <Route path = '/loggedIn' component = {LoggedInPageComponent}/>
             </Switch>
           </Router>          

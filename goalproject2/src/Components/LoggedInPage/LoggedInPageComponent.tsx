@@ -11,10 +11,7 @@ interface ILoggedInProps{
 }
 export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
    
-    buttonClick = (e: SyntheticEvent)=>{
-        e.preventDefault()
-        return (<Redirect to = '/users'/>)
-    }
+  
 
     render(){
         if(this.props.loggedUser.username === ""){
@@ -25,8 +22,8 @@ export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
         else{
         return(
             <>      
-                    <Form onSubmit = {this.buttonClick} className="viewAllUsersButton">
-                    <Button  >View All Users</Button>
+                    <Form onsubmit = "buttonClick()" className="viewAllUsersButton">
+                    <Button>View All Users</Button>
                     </Form>
                     <Container>
                     <UserInfoComponent/>
@@ -45,4 +42,7 @@ const mapStateToProps = (state:IState) =>{
   }  
   export default connect(mapStateToProps)(LoggedInPageComponent)
 
- 
+  export function buttonClick(e: SyntheticEvent){
+    e.preventDefault()
+    return (<Redirect to = '/all'/>)
+    }
