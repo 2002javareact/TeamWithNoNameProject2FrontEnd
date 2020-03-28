@@ -5,9 +5,12 @@ import { connect } from "react-redux"
 import { Button, Container, Form } from "reactstrap"
 import { Redirect } from "react-router"
 import  UserInfoComponent  from "../UserInfo/UserInfoContainer"
+import  ViewActiveGoalsByUserIdComponent  from "../ViewActiveGoalByUserId/ViewActiveGoalByUserIdContainer"
+import { Goal } from "../Models/Goals"
 
 interface ILoggedInProps{
-    loggedUser:Users
+    loggedUser:Users,
+    allGoals:Goal[]
 }
 export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
    
@@ -28,6 +31,7 @@ export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
                     <Container>
                     <UserInfoComponent/>
                     </Container>
+                    <ViewActiveGoalsByUserIdComponent allGoals={[]}/>
             </> 
         )
         }
