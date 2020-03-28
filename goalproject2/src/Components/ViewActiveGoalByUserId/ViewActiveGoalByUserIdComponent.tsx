@@ -39,9 +39,8 @@ export class ViewActiveGoalsByUserIdComponent extends React.Component<IViewActiv
             return( 
             <tr>
                 <th scope="row">{i++}</th>
-                <td>{element.name}</td>
-            
-            { <td onClick={()=>this.redirectToGoalPage(element.goalId)}>{element.name}</td>}
+                {/* <td>{element.name}</td> */}
+                <td><Link to={`/goals/${element.goalId}`}>{element.name} </Link> </td>
             </tr> )
         });
 

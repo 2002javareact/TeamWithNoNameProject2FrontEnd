@@ -12,6 +12,7 @@ import  LoggedInPageComponent  from './Components/LoggedInPage/LoggedInPageCompo
 import  UserInfoComponent  from './Components/UserInfo/UserInfoContainer';
 import  ViewActiveGoalsByUserIdComponent  from './Components/ViewActiveGoalByUserId/ViewActiveGoalByUserIdContainer';
 import  CreateGoalComponent  from './Components/GoalComponents/CreateGoalContainer';
+import  ViewOneGoalComponent  from './Components/ViewOneGoal/ViewOneGoalContainer';
 
 export class App extends React.Component<any,any> {
  
@@ -29,6 +30,7 @@ export class App extends React.Component<any,any> {
             <Route path = '/loggedIn' component = {LoggedInPageComponent}/>
             <Route path = '/goal' component = {ViewActiveGoalsByUserIdComponent}/>
             <Route path = '/create' component = {CreateGoalComponent}/> 
+            <Route path = '/goals/' component = {ViewOneGoalComponent}/>
             </Switch>
           </Router>          
         </div>
