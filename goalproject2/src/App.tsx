@@ -25,6 +25,7 @@ export class App extends React.Component<any,any> {
             <Route path = '/users/id' component ={UsersByIdComponent}/> 
             <Route path = '/users' component = {ViewAllUsersComponent}/> 
             <Route path = '/loggedIn' component = {LoggedInPageComponent}/>
+            <Route path = '/Goal'/> 
             </Switch>
           </Router>          
         </div>
