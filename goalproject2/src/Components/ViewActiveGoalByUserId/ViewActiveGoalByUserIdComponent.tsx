@@ -3,6 +3,7 @@ import { Table } from "reactstrap"
 import { Users } from "../Models/Users"
 import { Goal } from "../Models/Goals"
 import { Redirect } from "react-router"
+import { Link } from "react-router-dom"
 
 interface IViewActiveGoalsByUserIdPros {
     loggedUser: Users
@@ -18,10 +19,11 @@ export class ViewActiveGoalsByUserIdComponent extends React.Component<IViewActiv
     componentDidMount() {
         if (this.props.allGoals.length !== 0) {
 
+
         } else {
             this.props.getAllGoalsByUserIdActionMapper(this.props.loggedUser.userId)
+            }
         }
-    }
 
      redirectToGoalPage(goalId:number){
          this.setState({
@@ -56,11 +58,12 @@ export class ViewActiveGoalsByUserIdComponent extends React.Component<IViewActiv
                         {displayGoalname}
                     </tbody>
                 </Table>
-            </>
+                <Link to="/">Create New Goal</Link>
+        </>  
         :
-<>
-
-</>
+        <>
+        </>
+       
         )
     }
 }
