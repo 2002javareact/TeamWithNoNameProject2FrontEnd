@@ -1,8 +1,7 @@
 import { Users } from "../Models/Users"
 import React from "react"
 import { Table } from "reactstrap"
-import { Redirect } from "react-router"
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 
 interface IViewAllUsersProps {
     loggedUser:Users    
@@ -16,29 +15,30 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
 
     // runs when component starts to exist
     componentDidMount(){
-        if(this.props.allUsers.length !== 0){
-            //return
-            //make sure they are admin
-        }else if(this.props.loggedUser.role.roleId === 2){            
-            this.props.getAllUsersActionMapper()
-        }else {
-            //they weren't admin so do nothing
-            //return
-        }
+            if(this.props.loggedUser.username === ''){
+                return(
+                    <Redirect to ="/homepage"/>
+                )
+            }else if(this.props.loggedUser.role.roleId === 2){     
+            return (
+                this.props.getAllUsersActionMapper()
+            )
+            }
+            else{}
     }
 
     render(){
         let userDisplay = this.props.allUsers.map((person)=>{
         return (
                 <tr>          
-                <td><Link to={{pathname:`/users/${person.userId}`, state: { uid: `${person.userId}`}   }}>{person.userId}</Link></td>
+                <td><Link to={{pathname:`/id${person.userId}`, state: { uid: `${person.userId}`}   }}>{person.userId}</Link></td>
                 <td>{person.username}</td>
                 <td>{person.firstName}</td>
                 <td>{person.lastName}</td>
                 <td>{person.email}</td>
                 <td>{person.role.roleId}</td>
                 <td>{person.role.roleName}</td>
-                <td><Link to={{pathname:`/users/${person.userId}`, state: { uid: `${person.userId}`}   }}>update</Link> </td>
+                <td><Link to={{pathname:`/id${person.userId}`, state: { uid: `${person.userId}`}   }}>update</Link> </td>
               </tr>
         )})
 

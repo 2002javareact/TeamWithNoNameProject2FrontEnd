@@ -6,8 +6,8 @@ import { connect } from "react-redux"
 const mapStateToProps = (state:IState) => {
     return {
         allUsers: state.allUsers.allUsers,
-        errorMessage: state.allUsers.errorMessage,
-        currentUser: state.loggedUser.loggedUser
+        loggedUser: state.loggedUser.loggedUser,
+        errorMessage: state.allUsers.errorMessage        
     }
 }
 

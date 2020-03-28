@@ -1,11 +1,13 @@
 import { IState } from "../../Reducers";
 import { connect } from "react-redux";
-import {getAllGoalsByUserIdActionMapper} from "../../ActionMapper/getAllGoalsByUserIdActionMapper"
+import {getAllGoalsByUserIdActionMapper} from "../../ActionMapper/GetAllGoalsByUserIdActionMapper"
 import { ViewActiveGoalsByUserIdComponent } from "./ViewActiveGoalByUserIdComponent";
 
 const mapStateToProps = (state:IState) =>{
     return{
-        currentUser:state.loggedUser.loggedUser
+        loggedUser:state.loggedUser.loggedUser,
+        allGoals:state.allGoals.allGoals,
+        errorMessage:state.allGoals.errorMessage
     }
 }
 

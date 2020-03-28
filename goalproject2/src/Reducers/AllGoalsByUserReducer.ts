@@ -1,6 +1,6 @@
 import { IAllGoalsState } from ".";
 import { AnyAction } from "redux";
-import { goalTypes } from "../ActionMapper/getAllGoalsByUserIdActionMapper";
+import { goalTypes } from "../ActionMapper/GetAllGoalsByUserIdActionMapper";
 
 
 
@@ -16,7 +16,7 @@ export const allGoalReducer = (state = initialState, action: AnyAction)=>{
             return {
                 ...state,
                 allGoals: action.payload.allGoals,
-                errorMessage: 'Goals Retreved'
+                errorMessage: 'Goals Retrieved'
             }
         }
         case goalTypes.FAILED_TO_GET_ALL_GOALS: {

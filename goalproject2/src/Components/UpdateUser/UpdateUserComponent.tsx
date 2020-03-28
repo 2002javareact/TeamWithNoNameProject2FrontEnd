@@ -77,7 +77,7 @@ export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdat
 
     render(){
         return(
-            this.props.loggedUser.username === '' || this.props.loggedUser.role.roleId !== 1 ?
+            this.props.loggedUser.username === '' && this.props.loggedUser.role.roleId !== 2 ?
             <Redirect to = '/'/>
             :
             this.props.updatedUser.username === ''?

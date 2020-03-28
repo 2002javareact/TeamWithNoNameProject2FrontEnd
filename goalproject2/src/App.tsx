@@ -10,6 +10,7 @@ import  UsersByIdComponent  from './Components/UsersById/FindUserByIdContainer';
 import  ViewAllUsersComponent  from './Components/ViewAllUsers/ViewAllUsersContainer';
 import  LoggedInPageComponent  from './Components/LoggedInPage/LoggedInPageComponent';
 import  UserInfoComponent  from './Components/UserInfo/UserInfoContainer';
+import  ViewActiveGoalsByUserIdComponent  from './Components/ViewActiveGoalByUserId/ViewActiveGoalByUserIdContainer';
 
 export class App extends React.Component<any,any> {
  
@@ -25,7 +26,7 @@ export class App extends React.Component<any,any> {
             <Route path = '/id' component ={UsersByIdComponent}/> 
             <Route path = '/all' component = {ViewAllUsersComponent}/> 
             <Route path = '/loggedIn' component = {LoggedInPageComponent}/>
-            <Route path = '/Goal'/> 
+            <Route path = '/goal' component = {ViewActiveGoalsByUserIdComponent}/> 
             </Switch>
           </Router>          
         </div>
