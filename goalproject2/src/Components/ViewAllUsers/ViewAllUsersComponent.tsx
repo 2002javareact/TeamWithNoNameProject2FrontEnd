@@ -39,6 +39,8 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
                 <td>{person.role.roleId}</td>
                 <td>{person.role.roleName}</td>
                 <td><Link to={{pathname:`/id${person.userId}`, state: { uid: `${person.userId}`}   }}>update</Link> </td>
+                <td>delete </td>
+             
               </tr>
         )})
 
@@ -48,13 +50,13 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
             <thead>
                 <tr>
                 <th>id</th>
-                <th>username</th>
-                <th>password</th>
+                <th>username</th>                
                 <th>firstname</th>
                 <th>lastname</th>
                 <th>email</th>
                 <th>roleId</th>
                 <th>roleName</th>
+                <th>Action </th>
                 <th>Action </th>
                 </tr>
             </thead>
