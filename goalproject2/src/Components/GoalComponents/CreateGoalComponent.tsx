@@ -15,7 +15,6 @@ import {
 	CardText
 } from "reactstrap";
 import { Redirect } from "react-router";
-import { Role } from "../Models/Role";
 
 interface ICreateGoalProps {
 	createdGoal: Goal;
@@ -26,7 +25,6 @@ interface ICreateGoalProps {
 		description: string,
 		goalLength: number,
 		startDate: number,
-		completeDate: number,
 		successful: boolean
 	) => void;
 	errorMessage: string;
@@ -38,7 +36,6 @@ interface ICreateGoalState {
 	description: string;
 	goalLength: number;
 	startDate: number;
-	completeDate: number;
 	successful: boolean;
 }
 export class CreateGoalComponent extends React.Component<
@@ -48,22 +45,15 @@ export class CreateGoalComponent extends React.Component<
 	constructor(props: any) {
 		super(props);
 		this.state = {
-			user: new Users(0, "", "", "", "", "", new Role(0, "")),
+			user: this.props.loggedUser,
 			name: "",
 			description: "",
 			goalLength: 0,
 			startDate: 0,
-			completeDate: 0,
 			successful: false
 		};
 	}
 
-	updateUser = (e: any) => {
-		this.setState({
-			// user: e.currentTarget.value
-			user: this.props.loggedUser
-		});
-	};
 
 	updateName = (e: any) => {
 		this.setState({
@@ -89,12 +79,6 @@ export class CreateGoalComponent extends React.Component<
 		});
 	};
 
-	updateCompleteDate = (e: any) => {
-		this.setState({
-			completeDate: e.currentTarget.value
-		});
-	};
-
 	submit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 		this.props.CreateGoalActionMapper(
@@ -103,7 +87,6 @@ export class CreateGoalComponent extends React.Component<
 			this.state.description,
 			this.state.goalLength,
 			this.state.startDate,
-			this.state.completeDate,
 			false
 		);
 		// when we reach this point we don;t get that return value from the mapper
@@ -112,8 +95,8 @@ export class CreateGoalComponent extends React.Component<
 
 	render() {
 		return this.props.loggedUser.username === "" ? (
-			<Redirect to="/" />
-		) : this.state.description === "" ? (
+			<Redirect to="/homepage" />
+		) : this.props.createdGoal.goalId === 0? (
 			<Container>
 				<h2>Set up a Goal</h2>
 				<Col>
@@ -160,7 +143,7 @@ export class CreateGoalComponent extends React.Component<
 						<FormGroup>
 							<Label>Start Date</Label>
 							<Input
-								onChange={this.updateDescription}
+								onChange={this.updateStartDate}
 								value={this.state.startDate}
 								type="date"
 								name="startDate"
@@ -170,17 +153,6 @@ export class CreateGoalComponent extends React.Component<
 							/>
 						</FormGroup>
 
-						<FormGroup>
-							<Label>Complete Date</Label>
-							<Input
-								onChange={this.updateCompleteDate}
-								value={this.state.completeDate}
-								type="date"
-								name="completeDate"
-								id="completeDate"
-								placeholder="comnpleteDate"
-							/>
-						</FormGroup>
 						<Button>Submit</Button>
 					</Form>
 				</Col>

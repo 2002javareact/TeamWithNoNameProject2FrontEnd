@@ -10,7 +10,6 @@ export async function CreateGoalRequest(
 	description: string,
 	goalLength: number,
 	startDate: number,
-	completeDate: number,
 	successful: boolean
 ): Promise<Goal> {
 	let createdGoal = {
@@ -20,13 +19,12 @@ export async function CreateGoalRequest(
 		description,
 		goalLength,
 		startDate,
-		completeDate,
 		successful
 	};
 
 	try {
 		let res = await Project2Client.post("/goals", createdGoal);
-
+		
 		return res.data;
 	} catch (e) {
 		throw new InternalServiceError();

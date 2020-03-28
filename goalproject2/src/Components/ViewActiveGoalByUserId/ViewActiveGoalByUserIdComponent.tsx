@@ -58,11 +58,11 @@ export class ViewActiveGoalsByUserIdComponent extends React.Component<IViewActiv
                         {displayGoalname}
                     </tbody>
                 </Table>
-                <Link to="/">Create New Goal</Link>
+                <Link to="/create">Create New Goal</Link>
         </>  
         :
         <>
-             <Link to="/">Create New Goal</Link>
+             <Link to="/create">Create New Goal</Link>
         </>
        
         )

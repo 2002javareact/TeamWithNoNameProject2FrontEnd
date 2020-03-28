@@ -13,7 +13,6 @@ export const CreateGoalActionMapper = (
 	description: string,
 	goalLength: number,
 	startDate: number,
-	completeDate: number,
 	successful: boolean
 ) => async (dispatch: Dispatch) => {
 	try {
@@ -24,7 +23,6 @@ export const CreateGoalActionMapper = (
 			description,
 			goalLength,
 			startDate,
-			completeDate,
 			successful
 		);
 		console.log(createdGoal);
