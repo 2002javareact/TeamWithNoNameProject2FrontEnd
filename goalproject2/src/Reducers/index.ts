@@ -51,6 +51,8 @@ export interface IUsersState{
 export interface IAllGoalsState{
 	allGoals:Goal[]
 	errorMessage:string
+	currentGoalId:number
+	currentGoal:Goal
 }
 
 //define all of the pieces of state

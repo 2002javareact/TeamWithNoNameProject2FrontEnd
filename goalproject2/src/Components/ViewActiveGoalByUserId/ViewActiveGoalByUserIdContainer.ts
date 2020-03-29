@@ -7,7 +7,8 @@ const mapStateToProps = (state:IState) =>{
     return{
         loggedUser:state.loggedUser.loggedUser,
         allGoals:state.allGoals.allGoals,
-        errorMessage:state.allGoals.errorMessage
+        errorMessage:state.allGoals.errorMessage,
+        currentGoalId:state.allGoals.currentGoalId
     }
 }
 
