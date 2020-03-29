@@ -9,6 +9,8 @@ import { UpdateGoalReducer } from "./UpdateGoalReducer";
 import { findByUserIdReducer } from "./FindByUserIdReducer";
 import { usersReducer } from "./AllUsersReducer"
 import { allGoalReducer } from "./AllGoalsByUserReducer";
+import { deleteByUserIdReducer } from "./DeleteUserIdReducer";
+
 //make interfaces for each "piece" of state
 export interface ILoginState {
 	loggedUser: Users;
@@ -23,6 +25,12 @@ export interface IUpdateUserState {
 	updatedUser: Users;
 	errorMessage: string;
 }
+
+export interface IDeleteUserState {
+	deletedUser: Users;
+	errorMessage: string;
+}
+
 
 export interface IFindByUserIdState {
 	userById: Users;
@@ -60,6 +68,7 @@ export interface IState {
 	loggedUser: ILoginState;
 	createdUser: ICreateUserState;
 	updateUser: IUpdateUserState;
+	deleteUser: IDeleteUserState;
 	userId: IFindByUserIdState;
 	createdGoal: ICreateGoalState;
 	updatedGoal: IUpdateGoalState;
@@ -71,6 +80,7 @@ export const state = combineReducers<IState>({
 	loggedUser: LoginReducer,
 	createdUser: CreateUserReducer,
 	updateUser: UpdateUserReducer,
+	deleteUser: deleteByUserIdReducer,
 	userId: findByUserIdReducer,
 	createdGoal: CreateGoalReducer,
 	updatedGoal: UpdateGoalReducer,
