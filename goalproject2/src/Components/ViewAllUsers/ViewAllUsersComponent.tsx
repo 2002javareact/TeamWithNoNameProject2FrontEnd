@@ -39,14 +39,14 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
         let userDisplay = this.props.allUsers.map((person)=>{
         return (
                 <tr>          
-                <td><Link to={{pathname:`/id${person.userId}`, state: { uid: `${person.userId}`}   }}>{person.userId}</Link></td>
+                <td>{person.userId}</td>
                 <td>{person.username}</td>
                 <td>{person.firstName}</td>
                 <td>{person.lastName}</td>
                 <td>{person.email}</td>
                 <td>{person.role.roleId}</td>
                 <td>{person.role.roleName}</td>
-                <td><Link to={{ pathname: `/user/${person.userId}`, state: { userid: `${person.userId}` } }}>update</Link> </td>
+                <td><Link to={{ pathname: `/user/${person.userId}`, state: { userNAME: `${person.username}` } }}>update</Link> </td>
                 <td><Link to={{ pathname: `/user-delete/${person.userId}`, state: { userid: `${person.userId}` } }}>delete</Link> </td>
              
               </tr>

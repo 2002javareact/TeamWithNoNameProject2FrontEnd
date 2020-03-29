@@ -2,12 +2,15 @@ import React, { SyntheticEvent } from  "react"
 import { Users } from "../Models/Users"
 import { Col, FormGroup, Label, Input, Form, Container, Button, Card, CardTitle, CardText } from "reactstrap"
 import { Redirect } from "react-router"
+import  {FetchUserById} from "../../Remote/FetchUserById"
 
 interface IUpdateUserProps{
     updatedUser:Users
     loggedUser:Users
     errorMessage:string
     UpdateUserActionMapper:(userId:number,username:string,password:string,firstName:string,lastName:string,email:string)=>void
+    uId:number
+    //userNAME:string
 }
 
 interface IUpdateUserState{
@@ -17,7 +20,11 @@ interface IUpdateUserState{
     firstName:string
     lastName:string
     email:string
+  
 }
+
+interface ProblemRouteTokens { uId: string; }
+
 export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdateUserState>{
     constructor(props:any){
         super(props)
@@ -28,8 +35,36 @@ export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdat
             firstName:'',
             lastName:'',
             email:''
+           
         }
     }
+
+
+   
+
+    componentDidMount()
+    {
+                  
+      const uId =  this.props.uId
+
+     /*
+      let user =  FetchUserById(uId);
+      console.log(user);
+      let u = user.then(function(user) 
+      {  return user  }).then(  function (data)  {  console.log(data);    return data.email}       );
+      */
+      
+
+      this.setState({ userId:  uId }) 
+      //this.setState({username: ""})   // this.props.userNAME
+      this.setState({password: ""})
+     // this.setState({firstName: "Dzmitry"})
+     // this.setState({lastName: "Samuel"})
+      this.setState({email:"email@gmail.com"})         
+
+    }
+
+
 
     updateUserId = (e: any) => {
         this.setState({
