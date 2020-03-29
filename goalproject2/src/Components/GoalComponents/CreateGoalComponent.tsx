@@ -42,7 +42,7 @@ interface ICreateGoalState {
 export class CreateGoalComponent extends React.Component<
 	ICreateGoalProps,
 	ICreateGoalState
-> {
+	> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
@@ -97,79 +97,87 @@ export class CreateGoalComponent extends React.Component<
 	render() {
 		return this.props.loggedUser.username === "" ? (
 			<Redirect to="/homepage" />
-		) : this.props.createdGoal.goalId === 0? (
-			<Container>
-				<h2>Set up a Goal</h2>
-				<Col>
-					<Form onSubmit={this.submit}>
-						<FormGroup>
-							<Label>Name</Label>
-							<Input
-								onChange={this.updateName}
-								value={this.state.name}
-								type="text"
-								name="name"
-								id="name"
-								placeholder="goal name"
-								required
-							/>
-						</FormGroup>
+		) : this.props.createdGoal.goalId === 0 ? (
+			<>
+				<Link to="/loggedIn">Back to Homepage</Link>
+				<br />
+				<Container>
+					<h2>Set up a Goal</h2>
+					<Col>
+						<Form onSubmit={this.submit}>
+							<FormGroup>
+								<Label>Name</Label>
+								<Input
+									onChange={this.updateName}
+									value={this.state.name}
+									type="text"
+									name="name"
+									id="name"
+									placeholder="goal name"
+									required
+								/>
+							</FormGroup>
 
-						<FormGroup>
-							<Label>description</Label>
-							<Input
-								onChange={this.updateDescription}
-								value={this.state.description}
-								type="text"
-								name="description"
-								id="description"
-								placeholder="goal description"
-								required
-							/>
-						</FormGroup>
+							<FormGroup>
+								<Label>description</Label>
+								<Input
+									onChange={this.updateDescription}
+									value={this.state.description}
+									type="text"
+									name="description"
+									id="description"
+									placeholder="goal description"
+									required
+								/>
+							</FormGroup>
 
-						<FormGroup>
-							<Label>Goal Length </Label>
-							<Input
-								onChange={this.updateGoalLength}
-								value={this.state.goalLength}
-								type="number"
-								name="goalLength"
-								id="goalLength"
-								placeholder="goal length"
-								required
-							/>
-						</FormGroup>
+							<FormGroup>
+								<Label>Goal Length </Label>
+								<Input
+									onChange={this.updateGoalLength}
+									value={this.state.goalLength}
+									type="number"
+									name="goalLength"
+									id="goalLength"
+									placeholder="goal length"
+									required
+								/>
+							</FormGroup>
 
-						<FormGroup>
-							<Label>Start Date</Label>
-							<Input
-								onChange={this.updateStartDate}
-								value={this.state.startDate}
-								type="date"
-								name="startDate"
-								id="startDate"
-								placeholder="startDate"
-								required
-							/>
-						</FormGroup>
+							<FormGroup>
+								<Label>Start Date</Label>
+								<Input
+									onChange={this.updateStartDate}
+									value={this.state.startDate}
+									type="date"
+									name="startDate"
+									id="startDate"
+									placeholder="startDate"
+									required
+								/>
+							</FormGroup>
 
-						<Button>Submit</Button>
-					</Form>
-				</Col>
-			</Container>
+							<Button>Submit</Button>
+						</Form>
+					</Col>
+				</Container>
+			</>
 		) : (
-			<Container>
-				<Card>
-					<CardTitle>{`Name: ${this.props.createdGoal.name}`}</CardTitle>
-					<CardText>{`Description: ${this.props.createdGoal.description}`}</CardText>
-					<CardText>{`Goal Length: ${this.props.createdGoal.goalLength}`}</CardText>
-					<CardText>{`Start Date ${this.props.createdGoal.startDate}`}</CardText>
-					<CardText>{`Complete Date: ${this.props.createdGoal.completeDate}`}</CardText>
-				</Card>
-				<p>{this.props.errorMessage}</p>
-				<Link to="/loggedInPage">Back to Homepage</Link>
-			</Container>
-		);
+					<>
+						<Link to="/loggedIn">Back to Homepage</Link>
+						<br />
+						<Container>
+							<Card>
+								<CardTitle>{`Name: ${this.props.createdGoal.name}`}</CardTitle>
+								<CardText>{`Description: ${this.props.createdGoal.description}`}</CardText>
+								<CardText>{`Goal Length: ${this.props.createdGoal.goalLength}`}</CardText>
+								<CardText>{`Start Date ${this.props.createdGoal.startDate}`}</CardText>
+								<CardText>{`Complete Date: ${this.props.createdGoal.completeDate}`}</CardText>
+							</Card>
+							<p>{this.props.errorMessage}</p>
+						</Container>
+					</>
+				);
+
 	}
 } //end of class

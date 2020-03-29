@@ -31,20 +31,17 @@ export class ViewActiveGoalsByUserIdComponent extends React.Component<IViewActiv
 
     render() {
 
-        let i = 1
         let displayGoalname = this.props.allGoals.map((element) => {
             return (
                 <tr>
-                    <th scope="row">{i++}</th>
-                     <td>{element.name}</td> 
-                    <td onClick={() => this.redirectToGoalPage(element.goalId)}><Link to={`/goal/`}>{element.name} </Link> </td>
+                    <th scope="row" onClick={() => this.redirectToGoalPage(element.goalId)}><Link to={`/goal/`}>{element.name} </Link></th>
                 </tr>)
         });
 
         return (
             this.props.allGoals.length > 0 ?
                 <>
-                    <Table>
+                    <Table dark>
                         <thead>
                             <tr>
                                 <th>Goal Name</th>

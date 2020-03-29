@@ -114,6 +114,9 @@ export class UpdateGoalComponent extends React.Component<
 			<Redirect to="/homepage" />
 		) : this.props.updatedGoal.description === "" ? (
 			<>
+			
+				<Link to="/loggedIn">Back to Homepage</Link>
+				<br/>
 				<Container>
 					<h2>Goal Update Form</h2>
 					<Col>
@@ -197,6 +200,8 @@ export class UpdateGoalComponent extends React.Component<
 			</>
 		) : (
 			<>
+			<Link to="/loggedIn">Back to Homepage</Link>
+				<br/>
 			<Card>
 				<h3>Updated Goal</h3>
 				<CardTitle>Updated Information </CardTitle>
@@ -207,7 +212,6 @@ export class UpdateGoalComponent extends React.Component<
 				<CardText>{`Complete Date: ${this.props.updatedGoal.completeDate}`}</CardText>
 				<CardText>{`Successful: ${this.props.updatedGoal.successful}`}</CardText>
 			</Card>
-			<Link to="/loggedInPage">Back to Homepage</Link>
 			 </>
 		);
 	}

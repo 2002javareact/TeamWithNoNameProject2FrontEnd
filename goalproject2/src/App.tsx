@@ -27,7 +27,7 @@ export class App extends React.Component<any,any> {
             <Switch>   
             <Route path = '/homepage' component ={HomepageComponent}/> 
             <Route path = '/info' component={UserInfoComponent}/>            
-            <Route exact path="/user/:uId" render={props => <UpdateUserComponent {...props.match.params} />} />
+            <Route exact path="/user" render={props => <UpdateUserComponent {...props.match.params} />} />
             <Route exact path="/user-delete/:uId" render={props => <DeleteUserByIdComponent {...props.match.params} />} />
             <Route path = '/id' component ={UsersByIdComponent}/> 
             <Route path = '/all' component = {ViewAllUsersComponent}/> 
@@ -36,7 +36,7 @@ export class App extends React.Component<any,any> {
             <Route path = '/create' component = {CreateGoalComponent}/> 
             <Route path = '/update' component = {UpdateGoalComponent}/>
             <Route path = '/goal/' component = {ViewOneGoalComponent}/>
-
+            <Route path = '/' component ={HomepageComponent}/>
             </Switch>
           </Router>          
         </div>
