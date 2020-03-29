@@ -12,6 +12,7 @@ import  LoggedInPageComponent  from './Components/LoggedInPage/LoggedInPageCompo
 import  UserInfoComponent  from './Components/UserInfo/UserInfoContainer';
 import  ViewActiveGoalsByUserIdComponent  from './Components/ViewActiveGoalByUserId/ViewActiveGoalByUserIdContainer';
 import  CreateGoalComponent  from './Components/GoalComponents/CreateGoalContainer';
+//import  {DeleteUserByIdComponent} from './Components/DeleteUser/DeleteUsersByIdComponent';
 
 export class App extends React.Component<any,any> {
  
@@ -22,8 +23,8 @@ export class App extends React.Component<any,any> {
           <Router> 
             <Switch>   
             <Route path = '/homepage' component ={HomepageComponent}/> 
-            <Route path = '/info' component={UserInfoComponent}/>
-            <Route path = '/user' component = {UpdateUserComponent}/> 
+            <Route path = '/info' component={UserInfoComponent}/>            
+            <Route exact path="/user/:uId" render={props => <UpdateUserComponent {...props.match.params} />} />
             <Route path = '/id' component ={UsersByIdComponent}/> 
             <Route path = '/all' component = {ViewAllUsersComponent}/> 
             <Route path = '/loggedIn' component = {LoggedInPageComponent}/>
@@ -37,3 +38,10 @@ export class App extends React.Component<any,any> {
 }
 }
 export default App;
+
+/**
+ * 
+ * 
+   <Route exact path="/user-delete/:uId" render={props => <DeleteUserByIdComponent {...props.match.params} />} />
+          
+ */
