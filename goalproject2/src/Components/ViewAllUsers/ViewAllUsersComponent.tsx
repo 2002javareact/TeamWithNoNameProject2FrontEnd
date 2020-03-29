@@ -48,7 +48,6 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
                 <td>{person.role.roleName}</td>
 
                 <td><Link to={{pathname:`/user`}}>update</Link> </td>
-                <td>delete </td>
                 <td><Link to={{ pathname: `/user-delete/${person.userId}`, state: { userid: `${person.userId}` } }}>delete</Link> </td>
              
               </tr>
