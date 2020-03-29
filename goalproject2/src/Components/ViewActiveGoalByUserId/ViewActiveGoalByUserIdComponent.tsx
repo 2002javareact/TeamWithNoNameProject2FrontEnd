@@ -2,14 +2,13 @@ import React from "react"
 import { Table } from "reactstrap"
 import { Users } from "../Models/Users"
 import { Goal } from "../Models/Goals"
-import { Redirect } from "react-router"
 import { Link } from "react-router-dom"
 
 interface IViewActiveGoalsByUserIdPros {
     loggedUser: Users
     allGoals: Goal[]
-    getAllGoalsByUserIdActionMapper: (userId:number) => void
-    //currentGoalId: number
+    getAllGoalsByUserIdActionMapper: (userId: number) => void
+    currentGoalId: number
 }
 
 
@@ -22,50 +21,47 @@ export class ViewActiveGoalsByUserIdComponent extends React.Component<IViewActiv
 
         } else {
             this.props.getAllGoalsByUserIdActionMapper(this.props.loggedUser.userId)
-            }
         }
+    }
 
-     redirectToGoalPage(goalId:number){
-         this.setState({
-             currentGoalId: goalId
-         })
-     return <Redirect to='/goal'/>
-     }
+    redirectToGoalPage(goalId: number) {
+        this.setState({
+            currentGoalId: goalId
+        })
+    }
 
     render() {
-        
-        let i= 1
+
+        let i = 1
         let displayGoalname = this.props.allGoals.map((element) => {
-            return( 
-            <tr>
-                <td>{element.goalId}</td>
-                <td>{element.name}</td>
-            
-            { <td onClick={()=>this.redirectToGoalPage(element.goalId)}>{element.name}</td>}
-            </tr> )
+            return (
+                <tr>
+                    <th scope="row">{i++}</th>
+                    {/* <td>{element.name}</td> */}
+                    <td onClick={() => this.redirectToGoalPage(element.goalId)}><Link to={`/goal/${element.goalId}`}>{element.name} </Link> </td>
+                </tr>)
         });
 
         return (
             this.props.allGoals.length > 0 ?
-        <>
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>Goal Id</th>
-                            <th>Goal Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {displayGoalname}
-                    </tbody>
-                </Table>
-                <Link to="/create">Create New Goal</Link>
-        </>  
-        :
-        <>
-             <Link to="/create">Create New Goal</Link>
-        </>
-       
+                <>
+                    <Table>
+                        <thead>
+                            <tr>
+                                <th>Goal Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {displayGoalname}
+                        </tbody>
+                    </Table>
+                    <Link to="/create">Create New Goal</Link>
+                </>
+                :
+                <>
+                    <Link to="/create">Create New Goal</Link>
+                </>
+
         )
     }
 }
