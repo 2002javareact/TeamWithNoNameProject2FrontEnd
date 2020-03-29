@@ -14,34 +14,49 @@ interface IViewOneGoal {
 export class ViewOneGoalComponent extends React.Component<IViewOneGoal, any>{
 
     componentDidMount() {
-        return this.props.getOneGoalActionMapper(this.props.currentGoalId)
+        if (this.props.currentGoalId !== 0) {
+            return this.props.getOneGoalActionMapper(this.props.currentGoalId)
+        } else {
 
+        }
     }
 
 
     render() {
         let displayGoal
-
-        if (this.props.currentGoal.successful === true) {
-            displayGoal = (
-                <tr>
-                    <th scope="row"></th>
-                    <td>{this.props.currentGoal.name}</td>
-                    <td>{this.props.currentGoal.description}</td>
-                    <td>{this.props.currentGoal.startDate}</td>
-                    <td>{this.props.currentGoal.goalLength}</td>
-                    <td>Complete</td>
-                </tr>
-            )
+        if (this.props.currentGoal.goalId > 0) {
+            if (this.props.currentGoal.successful === true) {
+                displayGoal = (
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{this.props.currentGoal.name}</td>
+                        <td>{this.props.currentGoal.description}</td>
+                        <td>{this.props.currentGoal.startDate}</td>
+                        <td>{this.props.currentGoal.goalLength}</td>
+                        <td>Complete</td>
+                    </tr>
+                )
+            } else {
+                displayGoal = (
+                    <tr>
+                        <th scope="row"></th>
+                        <td>{this.props.currentGoal.name}</td>
+                        <td>{this.props.currentGoal.description}</td>
+                        <td>{this.props.currentGoal.startDate}</td>
+                        <td>{this.props.currentGoal.goalLength}</td>
+                        <td>Not Complete</td>
+                    </tr>
+                )
+            }
         } else {
             displayGoal = (
                 <tr>
                     <th scope="row"></th>
-                    <td>{this.props.currentGoal.name}</td>
-                    <td>{this.props.currentGoal.description}</td>
-                    <td>{this.props.currentGoal.startDate}</td>
-                    <td>{this.props.currentGoal.goalLength}</td>
-                    <td>Not Complete</td>
+                    <td>There</td>
+                    <td>Has</td>
+                    <td>Been</td>
+                    <td>A</td>
+                    <td>Mistake</td>
                 </tr>
             )
         }
@@ -58,11 +73,13 @@ export class ViewOneGoalComponent extends React.Component<IViewOneGoal, any>{
                             <th>Start Date</th>
                             <th>Time in Weeks</th>
                             <th>Completed?</th>
+                            <th>Update?</th>
                         </tr>
-                        <tbody>
-                            {displayGoal}
-                        </tbody>
                     </thead>
+                    <tbody>
+                        {displayGoal}
+                    </tbody>
+
                 </Table>
             </>
         )
