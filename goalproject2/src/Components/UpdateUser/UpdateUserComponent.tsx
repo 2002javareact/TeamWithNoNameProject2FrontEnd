@@ -1,72 +1,69 @@
-import React, { SyntheticEvent } from  "react"
+import React, { SyntheticEvent } from "react"
 import { Users } from "../Models/Users"
 import { Col, FormGroup, Label, Input, Form, Container, Button, Card, CardTitle, CardText } from "reactstrap"
 import { Redirect } from "react-router"
-<<<<<<< HEAD
 import { Link } from "react-router-dom"
-=======
-import  {FetchUserById} from "../../Remote/FetchUserById"
->>>>>>> be77fcdd6176dadf4f23794f309e0ba7386bba98
+import { FetchUserById } from "../../Remote/FetchUserById"
 
-interface IUpdateUserProps{
-    updatedUser:Users
-    loggedUser:Users
-    errorMessage:string
-    UpdateUserActionMapper:(userId:number,username:string,password:string,firstName:string,lastName:string,email:string)=>void
-    uId:number
+interface IUpdateUserProps {
+    updatedUser: Users
+    loggedUser: Users
+    errorMessage: string
+    UpdateUserActionMapper: (userId: number, username: string, password: string, firstName: string, lastName: string, email: string) => void
+    uId: number
     //userNAME:string
 }
 
-interface IUpdateUserState{
-    userId:number
-    username:string
-    password:string
-    firstName:string
-    lastName:string
-    email:string
-  
+interface IUpdateUserState {
+    userId: number
+    username: string
+    password: string
+    firstName: string
+    lastName: string
+    email: string
+
 }
 
 interface ProblemRouteTokens { uId: string; }
 
-export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdateUserState>{
-    constructor(props:any){
+export class UpdateUserComponent extends React.Component<IUpdateUserProps, IUpdateUserState>{
+    constructor(props: any) {
         super(props)
         this.state = {
-            userId:0,
-            username:'',
-            password:'',
-            firstName:'',
-            lastName:'',
-            email:''
-           
+            userId: 0,
+            username: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            email: ''
+
         }
     }
 
 
-   
 
-    componentDidMount()
-    {
-                  
-      const uId =  this.props.uId
 
-     /*
-      let user =  FetchUserById(uId);
-      console.log(user);
-      let u = user.then(function(user) 
-      {  return user  }).then(  function (data)  {  console.log(data);    return data.email}       );
-      */
-      
+    // componentDidMount()
+    // {
 
-      this.setState({ userId:  uId }) 
-      //this.setState({username: ""})   // this.props.userNAME
-      this.setState({password: ""})
-     // this.setState({firstName: "Dzmitry"})
-     // this.setState({lastName: "Samuel"})
-      this.setState({email:"email@gmail.com"})         
+    //   const uId =  this.props.uId
 
-    }
+    //  /*
+    //   let user =  FetchUserById(uId);
+    //   console.log(user);
+    //   let u = user.then(function(user) 
+    //   {  return user  }).then(  function (data)  {  console.log(data);    return data.email}       );
+    //   */
+
+
+    //   this.setState({ userId:  uId }) 
+    //   //this.setState({username: ""})   // this.props.userNAME
+    //   this.setState({password: ""})
+    //  // this.setState({firstName: "Dzmitry"})
+    //  // this.setState({lastName: "Samuel"})
+    //   this.setState({email:"email@gmail.com"})         
+
+    // }
 
 
 
@@ -108,70 +105,73 @@ export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdat
 
     submitUser = async (e: SyntheticEvent) => {
         e.preventDefault()
-        this.props.UpdateUserActionMapper(this.state.userId,this.state.username, this.state.password,this.state.firstName,this.state.lastName,this.state.email)
+        this.props.UpdateUserActionMapper(this.state.userId, this.state.username, this.state.password, this.state.firstName, this.state.lastName, this.state.email)
         // when we reach this point we don;t get that return value from the mapper
         // that value got hijacked and was sent to dispatch
     }
 
 
-    render(){
-        return(
+    render() {
+        return (
             this.props.loggedUser.username === '' && this.props.loggedUser.role.roleId !== 2 ?
-            <Redirect to = '/'/>
-            :
-            this.props.updatedUser.username === ''?
-            <>
-            <Container>
-                <h2>Update User</h2>
-              <Col>
-                <Form onSubmit = {this.submitUser}> 
-                    <FormGroup>
-                    <Label>userId</Label>
-                    <Input onChange={this.updateUserId} value={this.state.userId} type="number" name="userId" id="userId" placeholder="userId of user to update" required/>
-                    </FormGroup>
-                    
-                    <FormGroup>
-                    <Label>username</Label>
-                    <Input onChange={this.updateUsername} value={this.state.username} type="text" name="username" id="username" placeholder="new username"/>
-                    </FormGroup>
-                    
-                    <FormGroup>
-                    <Label>password</Label>
-                    <Input onChange={this.updatePassword} value={this.state.password} type="password" name="password" id="password" placeholder="new password"/>
-                    </FormGroup>
-                
-                    <FormGroup>
-                    <Label>First Name</Label>
-                    <Input onChange={this.updateFirstName} value={this.state.firstName} type="text" name="firstName" id="firstName" placeholder="First Name"/>
-                    </FormGroup>
-            
-                    <FormGroup>
-                    <Label>Last Name</Label>
-                    <Input onChange={this.updateLastName} value={this.state.lastName} type="text" name="lastName" id="lastName" placeholder="Last Name"/>
-                    </FormGroup>
-                
-                    <FormGroup>
-                    <Label>email</Label>
-                    <Input onChange={this.updateEmail} value={this.state.email} type="email" name="email" id="email" placeholder="Email"/>
-                    </FormGroup>
-                    <Button>Submit</Button>
-             </Form>
-             </Col>
-             </Container>
-            
-            </>        
-            :
-            <>
-            <Card>
-                <h3>Updated User</h3>
-                <CardTitle>{this.props.updatedUser.firstName} {this.props.updatedUser.lastName}</CardTitle>
-                <CardText>{`Username: ${this.props.updatedUser.username}`}</CardText>
-                <CardText>{`Role: ${this.props.updatedUser.role.roleName}`}</CardText>
-                <CardText>{`Email: ${this.props.updatedUser.email}`}</CardText>
-                <Link to="/loggedInPage">Back to Homepage</Link>
-             </Card>
-             
-             </>
+                <Redirect to='/' />
+                :
+                this.props.updatedUser.username === '' ?
+                    <>
+
+                        <Link to="/loggedInPage">Back to Homepage</Link>
+                        <br />
+                        <Container>
+                            <h2>Update User</h2>
+                            <Col>
+                                <Form onSubmit={this.submitUser}>
+                                    <FormGroup>
+                                        <Label>userId</Label>
+                                        <Input onChange={this.updateUserId} value={this.state.userId} type="number" name="userId" id="userId" placeholder="userId of user to update" required />
+                                    </FormGroup>
+
+                                    <FormGroup>
+                                        <Label>username</Label>
+                                        <Input onChange={this.updateUsername} value={this.state.username} type="text" name="username" id="username" placeholder="new username" />
+                                    </FormGroup>
+
+                                    <FormGroup>
+                                        <Label>password</Label>
+                                        <Input onChange={this.updatePassword} value={this.state.password} type="password" name="password" id="password" placeholder="new password" />
+                                    </FormGroup>
+
+                                    <FormGroup>
+                                        <Label>First Name</Label>
+                                        <Input onChange={this.updateFirstName} value={this.state.firstName} type="text" name="firstName" id="firstName" placeholder="First Name" />
+                                    </FormGroup>
+
+                                    <FormGroup>
+                                        <Label>Last Name</Label>
+                                        <Input onChange={this.updateLastName} value={this.state.lastName} type="text" name="lastName" id="lastName" placeholder="Last Name" />
+                                    </FormGroup>
+
+                                    <FormGroup>
+                                        <Label>email</Label>
+                                        <Input onChange={this.updateEmail} value={this.state.email} type="email" name="email" id="email" placeholder="Email" />
+                                    </FormGroup>
+                                    <Button>Submit</Button>
+                                </Form>
+                            </Col>
+                        </Container>
+                    </>
+                    :
+                    <>
+                        <Card>
+                            <h3>Updated User</h3>
+                            <CardTitle>{this.props.updatedUser.firstName} {this.props.updatedUser.lastName}</CardTitle>
+                            <CardText>{`Username: ${this.props.updatedUser.username}`}</CardText>
+                            <CardText>{`Role: ${this.props.updatedUser.role.roleName}`}</CardText>
+                            <CardText>{`Email: ${this.props.updatedUser.email}`}</CardText>
+                            <br />
+                            <Link to="/loggedInPage">Back to Homepage</Link>
+                        </Card>
+
+                    </>
         )
     }
 }//end of class

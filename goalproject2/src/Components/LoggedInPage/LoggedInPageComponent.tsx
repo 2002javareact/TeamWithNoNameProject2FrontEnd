@@ -26,6 +26,7 @@ export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
         else if (this.props.loggedUser.role.roleId === 2){
         return(
             <>      
+                <h3>Welcome</h3>
                 <Link to="/all">View all Users</Link>
                 <Container>
                 <UserInfoComponent/>
@@ -38,12 +39,13 @@ export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
         }
         else{
             return(
-            <>    
+            <>   
+                <h3>Welcome</h3> 
                 <Container>
                 <UserInfoComponent/>
                 </Container>
                 <ViewActiveGoalsByUserIdComponent/>
-                <br/>
+                
                 <Link to ="/update">Update Goal</Link>
             </>
             )
