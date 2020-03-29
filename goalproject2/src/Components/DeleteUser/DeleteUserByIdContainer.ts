@@ -1,5 +1,5 @@
 import { IState } from "../../Reducers"
-import { UserDeleteByIdActionMapper } from "../../ActionMapper/UserDeleteById"
+import { UserDeleteByIdActionMapper } from "../../ActionMapper/UserDeleteByIdActionMapper"
 import { connect } from "react-redux"
 import { DeleteUserByIdComponent} from "./DeleteUsersByIdComponent"
 const mapStateToProps = (state:IState) =>{
