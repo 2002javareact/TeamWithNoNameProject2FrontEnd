@@ -14,6 +14,7 @@ import {
 	CardText
 } from "reactstrap";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 interface IUpdateGoalProps {
 	updatedGoal: Goal;
@@ -110,7 +111,7 @@ export class UpdateGoalComponent extends React.Component<
 	render() {
 		return this.props.loggedUser.username === "" &&
 			this.props.loggedUser.role.roleId !== 2 ? (
-			<Redirect to="/" />
+			<Redirect to="/homepage" />
 		) : this.props.updatedGoal.description === "" ? (
 			<>
 				<Container>
@@ -195,6 +196,7 @@ export class UpdateGoalComponent extends React.Component<
 				</Container>
 			</>
 		) : (
+			<>
 			<Card>
 				<h3>Updated Goal</h3>
 				<CardTitle>Updated Information </CardTitle>
@@ -205,6 +207,8 @@ export class UpdateGoalComponent extends React.Component<
 				<CardText>{`Complete Date: ${this.props.updatedGoal.completeDate}`}</CardText>
 				<CardText>{`Successful: ${this.props.updatedGoal.successful}`}</CardText>
 			</Card>
+			<Link to="/loggedInPage">Back to Homepage</Link>
+			 </>
 		);
 	}
 } //end of class

@@ -31,6 +31,8 @@ export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
                 <UserInfoComponent/>
                 </Container>
                 <ViewActiveGoalsByUserIdComponent/>
+                <br/>
+                <Link to ="/update">Update Goal</Link>
             </> 
         )
         }
@@ -41,6 +43,8 @@ export class LoggedInPageComponent extends React.Component<ILoggedInProps,any>{
                 <UserInfoComponent/>
                 </Container>
                 <ViewActiveGoalsByUserIdComponent/>
+                <br/>
+                <Link to ="/update">Update Goal</Link>
             </>
             )
         }

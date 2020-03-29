@@ -15,6 +15,7 @@ import {
 	CardText
 } from "reactstrap";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 interface ICreateGoalProps {
 	createdGoal: Goal;
@@ -167,6 +168,7 @@ export class CreateGoalComponent extends React.Component<
 					<CardText>{`Complete Date: ${this.props.createdGoal.completeDate}`}</CardText>
 				</Card>
 				<p>{this.props.errorMessage}</p>
+				<Link to="/loggedInPage">Back to Homepage</Link>
 			</Container>
 		);
 	}

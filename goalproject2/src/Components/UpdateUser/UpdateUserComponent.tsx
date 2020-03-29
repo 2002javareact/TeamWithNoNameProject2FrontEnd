@@ -2,6 +2,7 @@ import React, { SyntheticEvent } from  "react"
 import { Users } from "../Models/Users"
 import { Col, FormGroup, Label, Input, Form, Container, Button, Card, CardTitle, CardText } from "reactstrap"
 import { Redirect } from "react-router"
+import { Link } from "react-router-dom"
 
 interface IUpdateUserProps{
     updatedUser:Users
@@ -122,13 +123,17 @@ export class UpdateUserComponent extends React.Component<IUpdateUserProps,IUpdat
             
             </>        
             :
+            <>
             <Card>
                 <h3>Updated User</h3>
                 <CardTitle>{this.props.updatedUser.firstName} {this.props.updatedUser.lastName}</CardTitle>
                 <CardText>{`Username: ${this.props.updatedUser.username}`}</CardText>
                 <CardText>{`Role: ${this.props.updatedUser.role.roleName}`}</CardText>
                 <CardText>{`Email: ${this.props.updatedUser.email}`}</CardText>
+                <Link to="/loggedInPage">Back to Homepage</Link>
              </Card>
+             
+             </>
         )
     }
 }//end of class
