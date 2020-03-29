@@ -2,7 +2,7 @@ import { Users } from "../Components/Models/Users"
 import { IDeleteUserState } from "."
 import { Role } from "../Components/Models/Role"
 import { AnyAction } from "redux"
-import { DeleteByUserIdTypes } from "../ActionMapper/UserDeleteById"
+import { DeleteByUserIdTypes } from "../ActionMapper/UserDeleteByIdActionMapper"
 
 export const initialState:IDeleteUserState = {
     deletedUser: new Users(0,'','','','','',new Role(1,'')),
