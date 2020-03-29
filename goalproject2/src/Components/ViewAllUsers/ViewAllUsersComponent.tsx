@@ -28,6 +28,14 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
     }
 
     render(){
+
+        var divStyle = {
+            background: "white",
+            //padding: "20px",
+            margin: "20px"            
+          };
+
+
         let userDisplay = this.props.allUsers.map((person)=>{
         return (
                 <tr>          
@@ -38,14 +46,16 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
                 <td>{person.email}</td>
                 <td>{person.role.roleId}</td>
                 <td>{person.role.roleName}</td>
-                <td><Link to={{pathname:`/id${person.userId}`, state: { uid: `${person.userId}`}   }}>update</Link> </td>
-                <td>delete </td>
+                <td><Link to={{ pathname: `/user/${person.userId}`, state: { userid: `${person.userId}` } }}>update</Link> </td>
+                <td><Link to={{ pathname: `/user-delete/${person.userId}`, state: { userid: `${person.userId}` } }}>delete</Link> </td>
              
               </tr>
         )})
 
         return(           
         <>
+
+<div  style={divStyle} >
                 <Table striped bordered hover size="sm">
             <thead>
                 <tr>
@@ -64,6 +74,7 @@ export class ViewAllUsersComponent extends React.Component<IViewAllUsersProps,an
             {userDisplay}    
         </tbody>
         </Table>
+        </div>
       </> 
         )
 }//end of render
