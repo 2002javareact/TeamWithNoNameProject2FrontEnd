@@ -2,27 +2,21 @@ import React from "react"
 import { Goal } from "../Models/Goals"
 import { Table } from "reactstrap"
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
+import { IState } from "../../Reducers"
 
 interface IViewOneGoal {
-    getOneGoalActionMapper: (id: number) => void
     currentGoal: Goal
-    currentGoalId: number
 }
 
 
 
 export class ViewOneGoalComponent extends React.Component<IViewOneGoal, any>{
 
-    componentDidMount() {
-        if (this.props.currentGoalId !== 0) {
-            return this.props.getOneGoalActionMapper(this.props.currentGoalId)
-        } else {
-
-        }
-    }
 
 
     render() {
+        console.log(this.props.currentGoal.goalId)
         let displayGoal
         if (this.props.currentGoal.goalId > 0) {
             if (this.props.currentGoal.successful === true) {
@@ -87,3 +81,12 @@ export class ViewOneGoalComponent extends React.Component<IViewOneGoal, any>{
 
 
 }
+
+const mapStatetoProps = (state: IState) => {
+
+    return {
+        currentGoal: state.oneGoal.oneGoal,
+    }
+}
+
+export default connect(mapStatetoProps)(ViewOneGoalComponent)

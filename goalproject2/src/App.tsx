@@ -13,7 +13,7 @@ import  UserInfoComponent  from './Components/UserInfo/UserInfoContainer';
 import  ViewActiveGoalsByUserIdComponent  from './Components/ViewActiveGoalByUserId/ViewActiveGoalByUserIdContainer';
 import  CreateGoalComponent  from './Components/GoalComponents/CreateGoalContainer';
 import  UpdateGoalComponent  from './Components/UpdateGoalComponents/UpdateGoalContainer';
-import  ViewOneGoalComponent  from './Components/ViewOneGoal/ViewOneGoalContainer';
+import  ViewOneGoalComponent  from './Components/ViewOneGoal/ViewOneGoalComponent';
 
 export class App extends React.Component<any,any> {
  

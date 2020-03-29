@@ -11,6 +11,7 @@ export const getOneGoalActionMapper = (id: number) => async (dispatch: Dispatch)
 
     try {
         let oneGoal = await getOneGoal(id)
+        console.log(`goal after request is ${oneGoal}`)
         dispatch({
             type: oneGoalTypes.GET_ONE_GOAL,
             payload: {
