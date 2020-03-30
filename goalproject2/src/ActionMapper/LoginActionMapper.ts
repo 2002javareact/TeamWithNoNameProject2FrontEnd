@@ -15,7 +15,8 @@ export const LoginActionMapper = (username:string, password:string) => async  (d
           type:  loginTypes.SUCCESSFUL_LOGIN,
           payload:{
               loggedUser
-          }
+          } 
+          
         })
     }catch(e){
         if(e.status === 400){
